@@ -1,21 +1,17 @@
 export ZSH=/Users/constantinguidon/.oh-my-zsh
 
-ZSH_THEME="zeit"
+ZSH_THEME="spaceship"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo composer npm osx)
 
 source $ZSH/oh-my-zsh.sh
 
-# Global Variables
-##################
+####################
+# Global Variables #
+####################
 
 # set vim as default editor
 export EDITOR=vim
-
-# RUBY
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-# added by travis gem
-[ -f /Users/constantinguidon/.travis/travis.sh ] && source /Users/constantinguidon/.travis/travis.sh
 
 # NODE
 export NVM_DIR="/Users/constantinguidon/.nvm"
@@ -56,12 +52,11 @@ export LANG=en_US.UTF-8
 # SSH
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export PATH=$PATH:/Applications/MAMP/bin/php/php7.0.0/bin:/Users/constantinguidon/.rvm/gems/ruby-2.3.0/bin:/Users/constantinguidon/.rvm/gems/ruby-2.3.0@global/bin:/Users/constantinguidon/.rvm/rubies/ruby-2.3.0/bin:/Users/constantinguidon/.nvm/versions/node/v6.9.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/constantinguidon/.composer/vendor/bin:/Users/constantinguidon/.rvm/bin
+#export PATH=$PATH:/Applications/MAMP/bin/php/php7.0.0/bin:/Users/constantinguidon/.rvm/gems/ruby-2.3.0/bin:/Users/constantinguidon/.rvm/gems/ruby-2.3.0@global/bin:/Users/constantinguidon/.rvm/rubies/ruby-2.3.0/bin:/Users/constantinguidon/.nvm/versions/node/v6.9.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/constantinguidon/.composer/vendor/bin:/Users/constantinguidon/.rvm/bin
 
-#################
-
-# ALIASES
-################
+###########
+# ALIASES #
+###########
 
 # PHP
 alias docthis="phpdoc run -d . -t doc/"
@@ -75,7 +70,10 @@ alias sf='php bin/console'
 alias sf2='php app/console'
 
 alias zshconfig="vim ~/.zshrc"
-#################
+
+########
+# MISC #
+########
 
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -86,5 +84,8 @@ function homestead() {
     ( cd ~/Homestead && vagrant $* )
     }
 
-# hub ( command line wrapper for github )
-eval "$(hub alias -s)"
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+
+DISABLE_UPDATE_PROMPT=true
